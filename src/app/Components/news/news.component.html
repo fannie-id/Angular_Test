@@ -1,0 +1,110 @@
+<h2>{{title}}</h2>
+<hr/>
+<div [title]=student>{{message}}</div>
+<hr/>
+<div>{{content}}</div>
+<div [innerHTML]='content'> no matter what</div>
+<hr/>
+<ol>
+  <li *ngFor="let item of arr">{{item}}</li>
+</ol>
+<br>
+<ul>
+  <li *ngFor="let item of list">{{item}}</li>
+</ul>
+<br>
+<ul>
+  <li *ngFor="let item of userList; let key =index">
+    <span *ngIf="key==1; else elseBlock" class="red">{{key}}---{{item.username}}---{{item.age}}</span>
+
+    <ng-template #elseBlock>{{key}}---{{item.username}}---{{item.age}}</ng-template>
+  </li>
+</ul>
+<br>
+
+
+<ul>
+  <li *ngFor="let item of cars">
+    <h2>{{item.cate}}</h2>
+    <ul>
+      <li *ngFor="let car of item.productList">{{car.title}}---{{car.price}}</li>
+    </ul>
+
+
+  </li>
+</ul>
+
+
+<hr/>
+
+
+<h1>IMAGES</h1>
+
+<img src="assets/images/marker-editor.svg" alt="marker"/>
+<img [src]="picUrl"/>
+
+<hr/>
+<h1>condition</h1>
+
+<div *ngIf="flag">
+
+  <img src="assets/images/marker-editor.svg" alt="marker"/>
+
+</div>
+
+<div *ngIf="!flag">
+
+  <img src="assets/images/marker-editor.svg" alt="marker"/>
+
+</div>
+<hr/>
+
+
+<span [ngSwitch]="oderStatus">
+
+  <p *ngSwitchCase="1">
+  ordered
+  </p>
+  <p *ngSwitchCase="2">
+  payed
+  </p>
+  <p *ngSwitchCase="3">
+  confirmed
+  </p>
+  <p *ngSwitchCase="4">
+  delivered
+  </p>
+  <p *ngSwitchDefault>
+    unknown
+  </p>
+
+
+</span>
+
+
+<ul>
+  <li *ngFor="let item of userList; let key =index"  [ngClass]="{'red': key ==0,'green':key ==1, 'blue':key ==2}">
+    <span >{{key}}---{{item.username}}---{{item.age}}</span>
+  </li>
+</ul>
+
+<p [ngStyle]="{'color':'blue'}"> ngStyle blue</p>
+<p [style]="{'color':'blue'}"> style blue</p>
+
+<p [style.color]=attr> [style.color]=attr </p>
+<hr/>
+
+<p>DATE | date:'yyyy-MM-dd HH:mm ss'</p>
+{{today | date:'yyyy-MM-dd HH:mm ss'}}
+
+<hr/>
+
+<h1>Action</h1>
+
+<button (click)="doSomething()">press hier</button>
+
+<button (click)="getData()">press hier get Data</button>
+
+<h2>{{message}}</h2>
+
+<button (click)="setData()">press hier change Data</button>
