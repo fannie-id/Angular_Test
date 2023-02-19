@@ -64,6 +64,8 @@ export class NewsComponent {
 
   public today: any = new Date();
 
+  public keyWords: string =""
+
   constructor() {
 
     this.message = 'change this type'
@@ -87,6 +89,10 @@ export class NewsComponent {
   keyUp(e:any){
 
     this.message = e.target.value
+  }
+
+  changeKW(){
+    this.keyWords = " i am changed"
   }
 
 }

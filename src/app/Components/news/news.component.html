@@ -113,4 +113,14 @@
 
 <h1>Input field</h1>
 <input type = "text" (keyup)="keyUp($event)">
+<hr/>
+
+<h1>MVVM Form</h1>
+<input type="text" [(ngModel)] = "keyWords"/>
+
+{{keyWords}}
+
+
+<button (click)="changeKW()"> change keWords</button>
+
 
