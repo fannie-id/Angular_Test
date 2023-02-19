@@ -84,5 +84,9 @@ export class NewsComponent {
     this.message = "changed Message"
   }
 
+  keyUp(e:any){
+
+    this.message = e.target.value
+  }
 
 }
