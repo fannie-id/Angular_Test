@@ -1,0 +1,52 @@
+<h1>form works!</h1>
+
+<h2>Anmeldungsformular</h2>
+<div class="people_list">
+
+  <ul>
+    <li>Name: <input type="text" id="username" [(ngModel)]="peopleInfo.username" class="form_input"/></li>
+    <li>
+      gender:
+      <input type="radio" value="1" name="gender" id="gender1" [(ngModel)]="peopleInfo.gender"> <label for="gender1">female</label>
+      <input type="radio" value="2" name="gender" id="gender2" [(ngModel)]="peopleInfo.gender"> <label for="gender2">male</label>
+    </li>
+
+
+    <li>
+      city:
+      <select name="city" id="city" [(ngModel)]="peopleInfo.city">
+
+        <option [value]="item" *ngFor="let item of peopleInfo.cityList">{{item}}</option>
+      </select>
+
+    </li>
+    <li>
+      hobby:
+      <span *ngFor="let item of peopleInfo.hobbyList; let key = index;">
+        <input type="checkbox" [id]="'item.check'+key" [(ngModel)]="item.check"/> <label
+        [for]="'item.check'+key">{{item.title}}</label>
+        &nbsp;&nbsp;
+</span>
+
+    </li>
+
+
+    <li>
+      textField:
+
+      <textarea name="mark" id="" cols="30" rows="10" [(ngModel)]="peopleInfo.mark"></textarea>
+
+
+    </li>
+
+
+  </ul>
+  <br/><br/><br/><br/><br/><br/>
+
+  <button (click)="handelSubmit()">get Form info</button>
+
+
+  <pre>
+    {{peopleInfo | json}}
+  </pre>
+</div>
